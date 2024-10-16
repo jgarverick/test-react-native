@@ -86,8 +86,11 @@ jobs:
       shell: bash
       run: |
         pushd iOS
-        xcodebuild -list -project TestRN2.xcodeproj
-        xcodebuild -scheme iOS build
+        xcodebuild -scheme TestRN2 build
+        popd
+        npm install -g react-native-cli
+        npx react-native init TestRN2
+        npx react-native run-ios
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
