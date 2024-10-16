@@ -14,7 +14,7 @@ RUN yum -y update
 # Install build utils
 #
 RUN touch /var/lib/rpm/* && \
-    yum -y install gcc gcc-c++ bzip2 && \
+    yum -y install gcc gnutils gcc-c++ bzip2 && \
     yum clean all
 
 # wget - command line utility (installed via. RPM)
