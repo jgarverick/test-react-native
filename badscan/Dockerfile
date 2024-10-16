@@ -9,7 +9,7 @@ ARG CURL_OPTIONS=""
 
 # Prep environment
 #
-RUN yum -y install deltarpm && yum -y update
+RUN yum -y update
 
 # Install build utils
 #
