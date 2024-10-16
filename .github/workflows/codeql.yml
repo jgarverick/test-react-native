@@ -86,6 +86,7 @@ jobs:
       shell: bash
       run: |
         pushd iOS
+        xcodebuild -list -project TestRN2.xcodeproj
         xcodebuild -scheme iOS build
 
     - name: Perform CodeQL Analysis
