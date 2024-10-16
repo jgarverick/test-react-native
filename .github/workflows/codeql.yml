@@ -85,9 +85,6 @@ jobs:
     - if: matrix.build-mode == 'manual' && matrix.language == 'swift'
       shell: bash
       run: |
-        pushd iOS
-        xcodebuild -scheme TestRN2 build
-        popd
         npm install -g react-native-cli
         npx react-native init TestRN2
         npx react-native run-ios
