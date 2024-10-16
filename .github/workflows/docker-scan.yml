@@ -43,11 +43,18 @@ jobs:
 
         # For more details on CodeQL's query packs, refer to: https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-queries-in-ql-packs
         # queries: security-extended,security-and-quality
+    - name: Build image
+      run: |
+        docker build -f ./badscan/Dockerfile -t ${{ github.repository }}:latest ./badscan
+    
     - name: Aqua Security Trivy
       uses: aquasecurity/trivy-action@0.28.0
       with:
         # Scan type to use for scanning vulnerability
         scan-type: image
+        image-ref: ${{ github.repository }}:latest
+        # Path to the Dockerfile to use for scanning
+        
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
