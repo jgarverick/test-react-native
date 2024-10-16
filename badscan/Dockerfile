@@ -1,5 +1,4 @@
-FROM centos:centos7.2.1511
-MAINTAINER adrianp@stindustries.net
+FROM redhat/ubi8
 
 # If you need to use a proxy to get to the internet, build with:
 #   docker build --build-arg CURL_OPTIONS="..."
